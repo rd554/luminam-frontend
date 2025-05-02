@@ -154,7 +154,7 @@ export default function DailyQuizPage() {
     localStorage.setItem('accepted_quest', suggestedQuest);
 
     try {
-      await fetch('http://127.0.0.1:8000/api/quests/add', {
+      await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/quests/add`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(questObj),

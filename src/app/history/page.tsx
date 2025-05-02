@@ -15,7 +15,7 @@ export default function HistoryPage() {
   useEffect(() => {
     async function fetchHistory() {
       const response = await fetch(
-        'http://127.0.0.1:8000/api/reflection/history/'
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/reflection/history/`
       );
       if (response.ok) {
         const data = await response.json();

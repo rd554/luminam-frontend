@@ -100,11 +100,14 @@ export default function JournalPage() {
 
     setLoading(true);
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/reflection/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ entry, mood: selectedMood }),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/reflection/`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ entry, mood: selectedMood }),
+        }
+      );
       const data = await res.json();
       setReflection(data.reflection);
       setEntry('');
